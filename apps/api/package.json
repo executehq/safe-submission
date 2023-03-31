@@ -1,0 +1,23 @@
+{
+  "name": "safe",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@execute-beta/sdk": "^0.2.4",
+    "@prisma/client": "^4.11.0",
+    "database": "*",
+    "express": "^4.18.2",
+    "web3": "^1.9.0"
+  },
+  "scripts": {
+    "dev": "npx nodemon --watch src --exec npx ts-node src/index.ts",
+    "dev:biconomy": "yarn dev",
+    "build": "tsc -p .",
+    "build:biconomy": "yarn build",
+    "prod:biconomy": "node dist/index.js"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13"
+  }
+}

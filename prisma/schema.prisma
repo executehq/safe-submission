@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum TriggerType {
+  TIMESTAMP
+  PRICE
+  EVM_EVENT
+}
+
+model SafeTrigger {
+  id              String      @id @default(uuid())
+  safeAddress     String
+  transactionId   String
+  totalExecutions Int         @default(0)
+  lastExecution   Int         @default(0)
+  logs            String[]
+  type            TriggerType
+  context         Json
+}
